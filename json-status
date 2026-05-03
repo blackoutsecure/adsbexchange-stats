@@ -363,7 +363,7 @@ while true; do
 	RV=$?
 
 	if [ $RV -ne 0 ]; then
-		echo "WARNING: curl process returned non-zero ($RV): [$CURL]; Sleeping a little extra."
+		echo "WARNING: curl process returned non-zero ($RV): [$REMOTE_URL]; Sleeping a little extra."
 		sleep $(( 5 + RANDOM % 15 ))
 	fi
 done
