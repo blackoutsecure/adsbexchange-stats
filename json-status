@@ -149,8 +149,8 @@ dns_lookup () {
 	fi
 
 	# If the host is cached, and the TTL hasn't expired, return the cached data.
-	if [ ${DNS_LOOKUP[$HOST]} ]; then
-		if [ ${DNS_EXPIRE[$HOST]} -ge $NOW ]; then
+	if [ -n "${DNS_LOOKUP[$HOST]:-}" ]; then
+		if [ "${DNS_EXPIRE[$HOST]:-0}" -ge "$NOW" ]; then
 			return 0
 		fi
 	fi
