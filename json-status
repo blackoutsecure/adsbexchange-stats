@@ -359,7 +359,7 @@ while true; do
     sleep 0.314
 
 	# Push up the data.  'curl' will wait no more than $MAX_CURL_TIME seconds for upload to complete
-	curl -m $MAX_CURL_TIME $CURL_EXTRA -sS -X POST -H "adsbx-uuid: ${UUID}" -H "Content_Encoding: gzip" --data-binary @- $REMOTE_URL 2>&1 <$TEMP_DIR/upload.gz
+	curl -m $MAX_CURL_TIME $CURL_EXTRA -sS -X POST -H "adsbx-uuid: ${UUID}" -H "Content-Encoding: gzip" --data-binary @- $REMOTE_URL 2>&1 <$TEMP_DIR/upload.gz
 	RV=$?
 
 	if [ $RV -ne 0 ]; then
