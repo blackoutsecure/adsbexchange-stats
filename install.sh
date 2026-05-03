@@ -22,9 +22,9 @@ function aptInstall() {
 }
 
 # commands used
-COMMANDS="curl jq gzip host perl"
+COMMANDS="curl jq gzip getent"
 # corresponding packages
-PACKAGES="curl jq gzip bind9-host perl bash-builtins"
+PACKAGES="curl jq gzip libc-bin bash-builtins"
 
 install=0
 if ! [[ -f /usr/lib/bash/sleep ]];
@@ -40,7 +40,7 @@ if [[ $install == 1 ]]; then
     if command -v apt-get &>/dev/null; then
         aptInstall $PACKAGES || true
     elif command -v yum &>/dev/null; then
-        yum install -y curl util-linux jq inotify-tools gzip bind-utils perl || true
+        yum install -y curl util-linux jq inotify-tools gzip glibc-common || true
     fi
 fi
 
